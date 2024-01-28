@@ -9,23 +9,34 @@ class Bulb extends StatefulWidget {
 }
 
 class _BulbState extends State<Bulb> {
-  bool bulbStatus = false;
-  bool switchStatus = false;
+  late bool bulbStatus;
+
+ // bool bulbStatus = false;
   @override
   void initState(){
-    //first time App Runs
+   //("INIT Function Called");
     readStoreValue();
     super.initState();
   }
 
   readStoreValue() async {
-    final SharedPreferences prefs = await SharedPreferences.getInstance();
+   // print("ReadStoreValue Function Called");
+    final prefs = await SharedPreferences.getInstance();
   //get previously stored value if any
-    bulbStatus = prefs.getBool('bulbStatus') ?? false; // await prefs.setBool('bulbStatus', false);
+     bulbStatus =  prefs.getBool('bulbStatus') ??  false;
+    setState(() {
+
+    });
+  }
+  updateStoreValue(bool value) async {
+    //print("UpdateStoreValue Function Called");
+    final prefs = await SharedPreferences.getInstance();
+    bulbStatus = await prefs.setBool('bulbStatus', value);
   }
 
   @override
   Widget build(BuildContext context) {
+   // print("Build Function Called");
     return Scaffold(
       appBar: AppBar(
         title: const Text('My Bulb App'),
@@ -40,11 +51,10 @@ class _BulbState extends State<Bulb> {
           Switch(
               value: bulbStatus,
               onChanged: (value) {
-                setState(()  async {
-                  //bulbStatus = value;
-                  final SharedPreferences prefs = await SharedPreferences.getInstance();
-                  bulbStatus = await prefs.setBool('bulbStatus', value);
+                setState(() {
+                  bulbStatus = value;
                 });
+                  updateStoreValue(value);
               }),
         ],
       ),
