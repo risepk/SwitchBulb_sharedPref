@@ -11,19 +11,19 @@ class Bulb extends StatefulWidget {
 class _BulbState extends State<Bulb> {
   late bool bulbStatus;
 
- // bool bulbStatus = false;
+  // bool bulbStatus = false;
   @override
   void initState(){
-   //("INIT Function Called");
+    //("INIT Function Called");
     readStoreValue();
     super.initState();
   }
 
   readStoreValue() async {
-   // print("ReadStoreValue Function Called");
+    // print("ReadStoreValue Function Called");
     final prefs = await SharedPreferences.getInstance();
-  //get previously stored value if any
-     bulbStatus =  prefs.getBool('bulbStatus') ??  false;
+    //get previously stored value if any
+    bulbStatus =  prefs.getBool('bulbStatus') ??  false;
     setState(() {
 
     });
@@ -36,7 +36,7 @@ class _BulbState extends State<Bulb> {
 
   @override
   Widget build(BuildContext context) {
-   // print("Build Function Called");
+    // print("Build Function Called");
     return Scaffold(
       appBar: AppBar(
         title: const Text('My Bulb App'),
@@ -54,7 +54,7 @@ class _BulbState extends State<Bulb> {
                 setState(() {
                   bulbStatus = value;
                 });
-                  updateStoreValue(value);
+                updateStoreValue(value);
               }),
         ],
       ),
