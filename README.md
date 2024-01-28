@@ -1,6 +1,16 @@
 # bulb_shared_pref
 
-A new Flutter project.
+# Assignment No. 4 
+Homework:  Assignment No 4 Create a Bulb with Switch Using the switch button on/off the bulb. The switch button and bulb should retain its previous state as the app is closed and relaunched next time using shared preferences.
+## Trainer: Muhammad Abid Saib 
+@abidroid
+
+Submitted By 
+# Name: 	Faiz Muhammad Khan (M.Sc Computer Science)
+Email: 	faizmuhammadkhan2@gmail.com
+Contact: 	03469081669 
+Link to github repo: https://github.com/risepk/SwitchBulb_sharedPref.git
+
 
 ## Getting Started
 
